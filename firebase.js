@@ -34,7 +34,10 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+
+const db = getFirestore(app);
 
 const SignUp = async (name, email, password) => {
   // auth - the firebase auth instance we created previously
@@ -44,6 +47,13 @@ const SignUp = async (name, email, password) => {
     
     updateProfile(userCred.user, {
       displayName: name
+    });
+
+    setDoc(doc(db, "users", userCred.user.uid), {
+      name: name,
+      email: userCred.user.email,
+      reading_speed: 0
+
     });
 
     // userCred.user will have all information
