@@ -79,4 +79,3 @@ signOut(auth)
 
 window.SignUp = SignUp;
 window.LogIn = LogIn;
-window.SignOut = signOut;
