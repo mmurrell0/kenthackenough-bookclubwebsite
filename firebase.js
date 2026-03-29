@@ -8,7 +8,7 @@ const appId = process.env.appId;*/
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -36,11 +36,16 @@ const auth = getAuth(app);
 
 import { createUserWithEmailAndPassword } from "firebase/auth"
 
-const SignUp = async (email, password) => {
+const SignUp = async (name, email, password) => {
   // auth - the firebase auth instance we created previously
   // email, password - string values for email and password
   createUserWithEmailAndPassword(auth, email, password)
   .then(userCred => {
+    
+    updateProfile(userCred.user, {
+      displayName: name
+    });
+
     // userCred.user will have all information
     // regarding our user, if they are signed-in
     console.log(userCred.user?.email)
@@ -62,16 +67,16 @@ const LogIn = async (email, password) => {
 }
 
 //IDK IF THIS WORKS
-import { getAuth, signOut } from "firebase/auth";
+/*import { getAuth, signOut } from "firebase/auth";
 
-SignOut(auth)
+signOut(auth)
 .then(() => {
   // Sign-out successful.
 }).catch((error) => {
   // show your error messages
-});
+});*/
 
 
 window.SignUp = SignUp;
 window.LogIn = LogIn;
-window.SignOut = SignOut;
+window.SignOut = signOut;
