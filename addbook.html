@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add a Book - Bookasaurus Read</title>
+    <style>
+            @font-face {
+            font-family: 'Erasaur';
+            src: url('Erasaur.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;}
+        body{
+            font-family: 'erasaur', sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-image: url("background3.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;}
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center; padding-top:20px; font-size:60px; text-shadow: 2px 2px 0 white, 2px -2px 0 white, -2px -2px 0 white;">Add a Book!</h1>
+    <section style="margin-left:500px; width:500px; height:450px; border-radius:25px; background-color:white;">
+    <form>
+        <br>
+        <label style="color:#48791d; margin-left:20px; font-size:35px;" for="title">Title:</label><br>
+            <input style="margin-top:10px; margin-left:150px; width:200px; font-size:20px;" type="text" id="title" name="title" required><br>
+            <br>
+        <label style="color:#48791d; margin-left:20px; font-size:35px;" for="author">Author:</label><br>
+            <input style="margin-top:10px; margin-left:150px; width:200px; font-size:20px;" type="text" id="author" name="author"><br>
+            <br>
+        <label style="color:#48791d; margin-left:20px; font-size:35px;" for="numpages">Number of Pages:</label><br>
+            <input style="margin-top:10px; margin-left:150px; width:200px; font-size:20px;" type="text" id="numpages" name="numpages" required><br>
+            <br>
+        <input style="height:50px; width:100px; margin-left:200px; font-size:20px;" type="submit" value="Submit">
+    </form>
+    </section>
+</body>
+</html>
