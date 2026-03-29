@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<style>
+        @font-face {
+            font-family: 'Erasaur';
+            src: url('Erasaur.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;}
+    
+    body{
+        font-family: 'erasaur', sans-serif;
+        margin: 0;
+        height: 100vh;
+        background-image: url("5d09480c-a83f-41be-b372-49b8107219bc.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;}
 
-    <style>
+
+
       .flexContainer{
       display: flex;
       flex-direction: column;
@@ -17,30 +33,74 @@
 </head>
 
 <body>
+     <div style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%); z-index: 1;">
+    <svg viewBox="0 0 600 400" width="600" style="display:block; margin:0 auto; height:auto;" preserveAspectRatio="xMidYMid meet">
+
+      <path 
+        id="curveTop"
+        d="M50,250 Q300,100 550,250"
+        fill="none"
+        stroke="none"
+      />
+      <text 
+        font-size="80"
+        text-anchor="middle"
+        font-family="Erasaur, Arial, sans-serif"
+        fill="black"
+        letter-spacing="2"
+        stroke="white"        
+        stroke-width="2" 
+      >
+        <textPath href="#curveTop" startOffset="50%">
+          Bookasaurus
+        </textPath>
+      </text>
+
+      <path 
+        id="curveBottom"
+        d="M50,320 Q300,180 550,320"
+        fill="none"
+        stroke="none"
+      />
+      <text 
+        font-size="65"
+        text-anchor="middle"
+        font-family="Erasaur, Arial, sans-serif"
+        fill="black"
+        letter-spacing="2"
+        stroke="white"        
+        stroke-width="2" 
+      >
+        <textPath href="#curveBottom" startOffset="50%">
+          Read
+        </textPath>
+      </text>
+    </svg>
+  </div>
   <div class="flexContainer">
-    <h2 style="text-align:center;position: relative; top: 300px; font-size: 40px">Login</h2>
-
-
-    <div style="text-align:center;position: relative; top: 275px">
-      <input id="emailInput" type="text" class="positioned-box" placeholder="Email" style="width: 150px; height: 25px;" >
-    </div>
-
+    <h2 style="text-align:center;position: relative; top: 300px; font-size: 40px; color:black; text-shadow: 2px 2px 0 white, 2px -2px 0 white, -2px -2px 0 white;">Login</h2>
 
     <div style="text-align:center;position: relative; top: 275px;">
-      <input id="passwordInput" type="password" class="positioned-box" placeholder="Password"
-      style="width: 150px; height: 25px;" >
+      <input id="emailInput" type="text" class="positioned-box" placeholder="Email" style="width: 200px; height: 40px; border-style: solid; border-width: 3px; border-radius: 10px"" >
     </div>
 
-      <div style="text-align:center;position: relative; top: 275px;">
+
+    <div style="text-align:center;position: relative; top: 280px;">
+      <input id="passwordInput" type="password" class="positioned-box" placeholder="Password"
+      style="width: 200px; height: 40px; border-style: solid; border-width: 3px; border-radius: 10px"" >
+    </div>
+
+      <div style="text-align:center;position: relative; top: 285px; height: 35px; width: 175;">
       <button type="submit" onClick="LogIn(document.getElementById('emailInput').value, document.getElementById('passwordInput').value)"> Submit</button>
     </div>
 
-    <div> <a href="mailto:someone@example.com" style="text-align:center;position: relative; top: 275px;font-size: 20px">Forgot Password</a>
+    <div> <a href="mailto:someone@example.com" style="text-align:center;position: relative; top: 290px;font-size: 15px; color:black; text-shadow: 2px 2px 0 lightgray, 2px -2px 0 lightgray, -2px -2px 0 lightgray;"">Forgot Password</a>
     </div>
 
 
-    <div> <a href="/Createaccount.html" style="text-align:center;position: relative; top: 275px;font-size: 20px">Sign Up</a>
+    <div> <a href="/Createaccount.html" style="text-align:center;position: relative; top: 290px;font-size: 15px; font-weight: bold; color: black; text-shadow: 2px 2px 0 lightgray, 2px -2px 0 lightgray, -2px -2px 0 lightgray;"">Sign Up</a>
     </div>
   </div>
+  
 </body>
 </html>
