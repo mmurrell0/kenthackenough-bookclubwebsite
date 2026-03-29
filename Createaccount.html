@@ -1,17 +1,37 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Create Account</title><style>
+  <title>Create Account</title>
+  <style>
+        @font-face {
+            font-family: 'Erasaur';
+            src: url('Erasaur.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;}
+    
+    body{
+        font-family: 'erasaur', sans-serif;
+        margin: 0;
+        height: 100vh;
+        background-image: url("5d09480c-a83f-41be-b372-49b8107219bc.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;}
+
     h2{
         text-align:center;
         position: relative; 
         top: 275px; 
-        font-size: 40px}
+        font-size: 40px;
+    font-family: 'erasaur', sans-serif;}
 
-    .flexContainer{
+    .flexContainer {
       display: flex;
       flex-direction: column;
     }
+    
   </style>
 
   <script type="module" src="firebase.js" defer></script>
@@ -21,27 +41,28 @@
   <h2>Create Account</h2>
 
 
-  <div style="text-align:center;position: relative; top: 275px">
-    <input type="text" class="positioned-box" placeholder="Name" style="width: 150px; height: 25px;">
+
+  <div style="text-align:center;position: relative; top: 250px">
+    <input type="text" class="positioned-box" placeholder="Name" style="width: 150px; height: 25px; border-style: solid; border-width: 3px; border-radius: 10px">
   </div>
 
-  <div style="text-align:center;position: relative; top: 275px">
-    <input id="emailInput" type="text" class="positioned-box" placeholder="Email" style="width: 150px; height: 25px;">
+  <div style="text-align:center;position: relative; top: 260px">
+    <input id="emailInput" type="text" class="positioned-box" placeholder="Email" style="width: 150px; height: 25px; border-style: solid; border-width: 3px; border-radius: 10px">
   </div>
 
 
-  <div style="text-align:center;position: relative; top: 275px;">
+  <div style="text-align:center;position: relative; top: 270px;">
     <input id ="passwordInput" type="password" class="positioned-box" placeholder="Password" 
-    style="width: 150px; height: 25px;">
+    style="width: 150px; height: 25px; border-style: solid; border-width: 3px; border-radius: 10px">
   </div>
 
-  <div style="text-align:center;position: relative; top: 275px;">
+  <div style="text-align:center;position: relative; top: 280px;">
     <input type="password" class="positioned-box" placeholder="Confirm Password"
-    style="width: 150px; height: 25px;">
+    style="width: 150px; height: 25px; border-style: solid; border-width: 3px; border-radius: 10px">
   </div>
 
 
-    <div style="text-align:center;position: relative; top: 275px;">
+    <div style="text-align:center;position: relative; top: 290px;">
     <button type="submit" onClick="SignUp(document.getElementById('emailInput').value, document.getElementById('passwordInput').value)"> Submit</button>
   </div>
 </div>
