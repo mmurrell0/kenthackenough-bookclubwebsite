@@ -40,28 +40,29 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 const db = getFirestore(app);
 
 const SignUp = async (name, email, password) => {
-  // auth - the firebase auth instance we created previously
-  // email, password - string values for email and password
-  createUserWithEmailAndPassword(auth, email, password)
-  .then(userCred => {
-    
-    updateProfile(userCred.user, {
-      displayName: name
-    });
+  try {
+    // Create the user
+    const userCred = await createUserWithEmailAndPassword(auth, email, password);
 
-    setDoc(doc(db, "users", userCred.user.uid), {
+    // Update display name
+    await updateProfile(userCred.user, { displayName: name });
+
+    // Create Firestore user document
+    await setDoc(doc(db, "users", userCred.user.uid), {
       name: name,
       email: userCred.user.email,
       reading_speed: 0,
       books_read: 0
-
     });
 
-    // userCred.user will have all information
-    // regarding our user, if they are signed-in
-    console.log(userCred.user?.email)
+    console.log("User document created:", userCred.user.uid);
+
+    // Redirect after everything is done
     window.location.href = "/index.html";
-  })
+
+  } catch (error) {
+    console.error("Error signing up:", error.code, error.message);
+  }
 }
 
 import { setPersistence, browserLocalPersistence, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth"
@@ -121,6 +122,31 @@ async function setProfile() {
   });
 }
 
+async function setDashboard()
+{
+  console.log("Set Dashboard!");
+
+  const docRef = doc(db, "bookclubs", "PZL");
+  const docSnap = await getDoc(docRef);
+
+  document.getElementById("bookNameDisplay").innerText = docSnap.data().book_name;
+  document.getElementById("pageText").innerText = docSnap.data().num_pages + " pages";
+
+  // Hard coded for now
+  //document.getElementById("progress1").style.max = docSnap.data().num_pages;
+  //document.getElementById("progress2").style.max = docSnap.data().num_pages;
+  //document.getElementById("progress3").style.max = docSnap.data().num_pages;
+  //document.getElementById("progress4").style.max = docSnap.data().num_pages;
+  
+  const progressMap = docSnap.data().progress;
+
+  // ADD UIDs TO THE END
+  document.getElementById("progress1").style.width = progressMap["290qBargllT27wvXOsXVXXONOOo1"] / docSnap.data().num_pages * 100 + "%";
+  document.getElementById("progress2").style.width = progressMap["NS9wkkgdJHc0SXrZDwiokOsQkFH3"] / docSnap.data().num_pages * 100 + "%";
+  document.getElementById("progress3").style.width = progressMap["8irZt7AepwU5s0eX47N7Fuyax3H2"] / docSnap.data().num_pages * 100 + "%";
+  document.getElementById("progress4").style.width = progressMap["kc5HWPiUQVc3BuDXdFywETC2Ckj2"] / docSnap.data().num_pages * 100 + "%";
+}
+
 function passwordReset()
 {
   const email = document.getElementById("emailInput").value;
@@ -153,4 +179,5 @@ window.SignUp = SignUp;
 window.LogIn = LogIn;
 window.getUsers = getUsers;
 window.setProfile = setProfile;
+window.setDashboard = setDashboard;
 window.passwordReset = passwordReset;

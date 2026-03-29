@@ -6,6 +6,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=.9">
 
+<script type="module" src="firebase.js" defer></script>
+
 <style>
      @font-face {
       font-family: 'Erasaur';
@@ -38,7 +40,7 @@ body {
   
   height: 100vh;
   margin: 0;
-  margin-left: 50px;
+  margin-left: 0px;
 }
 
 
@@ -66,9 +68,9 @@ article
   padding: 5px;
   width: 40%;
   background-color: whitesmoke;
-height: 65%;
- border-radius: 30px;
- margin-top: 55px;
+  height: 65%;
+  border-radius: 30px;
+  margin-top: 55px;
  margin-bottom: 65px;
 }
 
@@ -81,8 +83,10 @@ section {
   display: table;
   clear:both;  
 }
-nav, {
-    height: 100%
+nav {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 footer 
  {background-color: #c09972;
@@ -154,7 +158,7 @@ margin-top: 23px;}
 </style>
 </head>
 
-<body>
+<body onload="setDashboard()">
 
 
 <section>
@@ -176,7 +180,7 @@ margin-top: 23px;}
   position: relative;  
 ">
   <div style="margin-left: 25px;">
-    <h1 class="erasaur-font">Friend's Progress</h1>
+    <h1 class="erasaur-font">Your Book Club</h1>
     <p></p>
   </div>
 
@@ -184,7 +188,7 @@ margin-top: 23px;}
   <div style="display: flex; align-items: center; margin-top: 20px; margin-left: 20px;">
     <img src="1000005734.png" alt="Link Image" style="width: 90px; height: 90px; object-fit: contain;">
     <div style="height: 20px; width: 200px; background-color: #ddd; border-radius: 10px; margin-left: 15px; overflow: hidden;">
-      <div style="height: 100%; width: 60%; background-color: #4e7814;"></div>
+      <div id="progress1" style="height: 100%; width: 60%; background-color: #4e7814;"></div>
     </div>
   </div>
 
@@ -192,7 +196,7 @@ margin-top: 23px;}
   <div style="display: flex; align-items: center; margin-top: 20px; margin-left: 20px;">
     <img src="1000005734.png" alt="Link Image" style="width: 90px; height: 90px; object-fit: contain;">
     <div style="height: 20px; width: 200px; background-color: #ddd; border-radius: 10px; margin-left: 15px; overflow: hidden;">
-      <div style="height: 100%; width: 80%; background-color: #4e7814;"></div>
+      <div id="progress2" style="height: 100%; width: 80%; background-color: #4e7814;"></div>
     </div>
   </div>
 
@@ -200,7 +204,7 @@ margin-top: 23px;}
   <div style="display: flex; align-items: center; margin-top: 20px; margin-left: 20px;">
     <img src="1000005734.png" alt="Link Image" style="width: 90px; height: 90px; object-fit: contain;">
     <div style="height: 20px; width: 200px; background-color: #ddd; border-radius: 10px; margin-left: 15px; overflow: hidden;">
-      <div style="height: 100%; width: 40%; background-color: #4e7814;"></div>
+      <div id="progress3" style="height: 100%; width: 40%; background-color: #4e7814;"></div>
     </div>
   </div>
 
@@ -208,7 +212,7 @@ margin-top: 23px;}
   <div style="display: flex; align-items: center; margin-top: 20px; margin-left: 20px;">
     <img src="1000005734.png" alt="Link Image" style="width: 90px; height: 90px; object-fit: contain;">
     <div style="height: 20px; width: 200px; background-color: #ddd; border-radius: 10px; margin-left: 15px; overflow: hidden;">
-      <div style="height: 100%; width: 70%; background-color: #4e7814;"></div>
+      <div id="progress4" style="height: 100%; width: 70%; background-color: #4e7814;"></div>
     </div>
   </div>
 </article>
@@ -219,18 +223,17 @@ margin-top: 23px;}
 </footer>
 <div class="bottom-left-box">
   <h1 class="erasaur-font">Goal</h1>
-  <p class="erasaur-font">test</p>
+  <p class="erasaur-font">Read 50 more pages this week!</p>
 </div>
 <div class="bottom-right-box">
   <h1 class="erasaur-font">Next Meeting</h1>
    
-  <p class="erasaur-font">test</p>
+  <p class="erasaur-font">2 Weeks From Now</p>
  
 </div>
 <div class="top-right-box">
-    
-  <h1 class="erasaur-font">Next Meeting</h1>
-  <p>test</p>
+  <h1 id="bookNameDisplay" class="erasaur-font">Book Name</h1>
+  <p id="pageText">#ofpages</p>
    <a href="profile.html" style="
   position: absolute; 
   top: 20px; 
