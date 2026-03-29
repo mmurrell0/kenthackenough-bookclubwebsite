@@ -5,35 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <style>
+      .flexContainer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      }
+    </style>
+
     <script type="module" src="firebase.js" defer></script>
 </head>
 
 <body>
-    
-<h2 style="text-align:center;position: relative; top: 300px; font-size: 40px">Login</h2>
+  <div class="flexContainer">
+    <h2 style="text-align:center;position: relative; top: 300px; font-size: 40px">Login</h2>
 
 
-<div style="text-align:center;position: relative; top: 275px">
-  <input id="emailInput" type="text" class="positioned-box" placeholder="Email" style="width: 150px; height: 25px;" >
-</div>
+    <div style="text-align:center;position: relative; top: 275px">
+      <input id="emailInput" type="text" class="positioned-box" placeholder="Email" style="width: 150px; height: 25px;" >
+    </div>
 
 
-<div style="text-align:center;position: relative; top: 10px;">
-  <input id="passwordInput" type="password" class="positioned-box" placeholder="Password"
-  style="width: 150px; height: 25px;" >
-</div>
+    <div style="text-align:center;position: relative; top: 275px;">
+      <input id="passwordInput" type="password" class="positioned-box" placeholder="Password"
+      style="width: 150px; height: 25px;" >
+    </div>
 
-  <div style="text-align:center;position: relative; top: 10px;">
-   <button type="submit" onClick="LogIn(document.getElementById('emailInput').value, document.getElementById('passwordInput').value)"> Submit</button>
-</div>
+      <div style="text-align:center;position: relative; top: 275px;">
+      <button type="submit" onClick="LogIn(document.getElementById('emailInput').value, document.getElementById('passwordInput').value)"> Submit</button>
+    </div>
 
-<div> <a href="mailto:someone@example.com" style="text-align:center;position: relative; top: 15px;font-size: 20px">Forgot Password</a>
-</div>
-
-
-<div> <a href="/Createaccount.html" style="text-align:center;position: relative; top: 15px;font-size: 20px">Sign Up</a>
-</div>
+    <div> <a href="mailto:someone@example.com" style="text-align:center;position: relative; top: 275px;font-size: 20px">Forgot Password</a>
+    </div>
 
 
+    <div> <a href="/Createaccount.html" style="text-align:center;position: relative; top: 275px;font-size: 20px">Sign Up</a>
+    </div>
+  </div>
 </body>
 </html>
