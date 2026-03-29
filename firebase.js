@@ -46,8 +46,32 @@ const SignUp = async (email, password) => {
     console.log(userCred.user?.email)
   })
 }
-window.SignUp = SignUp;
 
-function testFunction(){
-  alert("This is working!");
+import { signInWithEmailAndPassword } from "firebase/auth"
+
+const LogIn = async (email, password) => {
+  // firebaseAuth - the firebase auth instance we created previously
+  // email, password - string values for email and password
+  signInWithEmailAndPassword(auth, email, password)
+  .then(userCred => {
+    // userCred.user will have all information
+    // regarding our user, if they are signed-in
+    console.log(userCred.user)
+    console.log("LogIn Worked!")
+  })
 }
+
+//IDK IF THIS WORKS
+import { getAuth, signOut } from "firebase/auth";
+
+SignOut(auth)
+.then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // show your error messages
+});
+
+
+window.SignUp = SignUp;
+window.LogIn = LogIn;
+window.SignOut = SignOut;
