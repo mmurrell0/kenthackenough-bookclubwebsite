@@ -17,17 +17,17 @@
         background-repeat: no-repeat;
         background-position: center;}
     </style>
+    <script type="module" src="firebase.js" defer></script>
 </head>
-<body>
-    <h1 style="text-indent:50px; padding-top:20px; font-size:60px; text-shadow: 2px 2px 0 white, 2px -2px 0 white, -2px -2px 0 white;">Profile</h1>
+<body onLoad="setProfile()">
+    <h1 style="text-indent:50px; padding-top:20px; font-size:60px; text-shadow: 2px 2px 0 white, 2px -2px 0 white, -2px -2px 0 white;";">Profile</h1>
     <section style="margin-left:100px; width:775px; border-radius:25px; background-color:white;">
-        <p style="padding-top:30px; text-indent:50px; color:#48791d; font-size:35px;">
-            <img src="dinopfp.jpg" alt="Profile Picture" style="float:left; margin-top:30px; margin-left:70px; width:200px; height:200px;">E-mail:
-        </p>
-        <p style="text-indent:50px; color:#48791d; font-size:35px;">Books Read:</p>
+        <img src="dinopfp.jpg" alt="Profile Picture" style="float:left; margin-top:30px; margin-left:70px; width:200px; height:200px;">
+        <p id="emailDisplay" style="padding-top:30px; text-indent:50px; color:#48791d; font-size:35px;"> E-mail: </p>
+        <p id="booksDisplay" style="text-indent:50px; color:#48791d; font-size:35px;">Books Read:</p>
         <br>
         <br>
-        <p style="text-indent:85px; color:#48791d; font-size:35px;">username</p>
+        <p id="nameDisplay" style="text-indent:85px; color:#48791d; font-size:35px;">username</p>
         <button style="margin-left:85px; color:#48791d" class="usernamebtn">Change Username</button>
         <p></p>
         <button style="margin-left:85px; color:#48791d" class="pfpbtn">Change Profile Picture</button>
